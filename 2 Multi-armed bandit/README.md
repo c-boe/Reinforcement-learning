@@ -1,0 +1,1 @@
+Implementation of some algorithms (a simple bandit algorithm and the gradient bandit algoritm), exercises/examples of Chapter 2 (Multi-armed Bandits) of Sutton and Barto's book "Reinforcement learning"

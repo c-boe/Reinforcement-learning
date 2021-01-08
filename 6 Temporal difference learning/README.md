@@ -1,0 +1,1 @@
+Implementation of some algorithms, exercises/examples (Q learning for "Cliffwalking" and SARSA for "windy gridworld") of Chapter 6 (Temporal difference learning) of Sutton and Barto's book "Reinforcement learning"
