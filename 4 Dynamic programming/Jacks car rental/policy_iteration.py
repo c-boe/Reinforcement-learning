@@ -4,7 +4,7 @@ Learning"
 """
 
 import numpy as np
-from jackscarservice import JacksCarService
+from jackscarrental import JacksCarRental
 import time
 import matplotlib.pyplot as plt
 
@@ -52,46 +52,6 @@ def init_policy(max_cars_per_loc):
 
 
 #%%
-
-def policy_iteration(env, theta, gamma):
-    '''
-    Policy iteration algorithm
-
-    Parameters
-    ----------
-    env :
-        Jacks car service MDP
-    theta : float
-       treshold for policy evaluation
-    gamma : float
-        discount factor of DP
-
-    Returns
-    -------
-    V : ndarray, shape (max_cars_per_loc, max_cars_per_loc)
-        state value function
-    pi : ndarray, shape (max_cars_per_loc, max_cars_per_loc)
-        policy
-
-    '''
-    actions = env.action_space()
-    
-    V = init_val_fun(env.max_cars_per_loc)    
-    pi = init_policy(env.max_cars_per_loc)
-
-    pi_tmp = np.random.rand(pi.shape[0],pi.shape[1])
-
-    while not np.array_equal(pi, pi_tmp):
-        pi_tmp = pi
-        # evaluate value function
-        V = eval_policy(env, pi_tmp, V, theta, gamma)
-        # improve_policy
-        pi = improve_policy(env, V, actions)
-    
-    # plots
-
-    return V, pi
-
 
 def eval_policy(env, pi, V, theta, gamma):
     '''
@@ -231,6 +191,47 @@ def value_function(env, current_state, action, Value_function, gamma):
 
     return V_value
 
+
+def policy_iteration(env, theta, gamma):
+    '''
+    Policy iteration algorithm
+
+    Parameters
+    ----------
+    env :
+        Jacks car service MDP
+    theta : float
+       treshold for policy evaluation
+    gamma : float
+        discount factor of DP
+
+    Returns
+    -------
+    V : ndarray, shape (max_cars_per_loc, max_cars_per_loc)
+        state value function
+    pi : ndarray, shape (max_cars_per_loc, max_cars_per_loc)
+        policy
+
+    '''
+    actions = env.action_space()
+    
+    V = init_val_fun(env.max_cars_per_loc)    
+    pi = init_policy(env.max_cars_per_loc)
+
+    pi_tmp = np.random.rand(pi.shape[0],pi.shape[1])
+
+    while not np.array_equal(pi, pi_tmp):
+        pi_tmp = pi
+        # evaluate value function
+        V = eval_policy(env, pi_tmp, V, theta, gamma)
+        # improve_policy
+        pi = improve_policy(env, V, actions)
+    
+    # plots
+
+    return V, pi
+
+
 #%%
 
 def plot_VF(V):
@@ -308,7 +309,7 @@ if __name__ == '__main__':
     free_shift_AB = 1    # shift first car from A to B for free
 
     start = time.time()
-    env_JCS = JacksCarService(
+    env_JCS = JacksCarRental(
                     max_cars_per_loc, min_shift, max_shift,
                     lbd_req_A, lbd_ret_A, lbd_req_B, lbd_ret_B, max_n,
                     reward_req, reward_shift, reward_parking_lot, 

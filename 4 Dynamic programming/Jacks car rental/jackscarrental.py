@@ -5,9 +5,9 @@ Learning"
 import numpy as np
 
 
-class JacksCarService():
+class JacksCarRental():
     '''
-    Define Jacks's car service MDP
+    Define Jacks's car rental MDP
     '''
     
     def __init__(self, max_cars_per_loc, min_shift, max_shift,

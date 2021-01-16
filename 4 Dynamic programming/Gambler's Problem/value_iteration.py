@@ -4,7 +4,7 @@ Learning"
 """
 import matplotlib.pyplot as plt
 import numpy as np
-from gp import GamblersProblem
+from gamblersproblem import GamblersProblem
 
 
 def value_iteration(env, theta):
