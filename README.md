@@ -22,6 +22,7 @@ Environments from OpenAI gym were not utilized but it was tried to keep the stru
 * [Windy gridworld with Sarsa and cliffwalking with Q-learning](https://github.com/c-boe/Reinforcement-learning/tree/main/6%20Temporal%20difference%20learning)
 * [Mountain car task with Episodic Sarsa with function approximation](https://github.com/c-boe/Reinforcement-learning/tree/main/10%20On-policy%20control%20with%20approximation/Mountain%20Car)
 * [Access-control queuing task with differential semi-gradient Sarsa](https://github.com/c-boe/Reinforcement-learning/tree/main/10%20On-policy%20control%20with%20approximation/Access%20control)
+* [Mountain car task with Sarsa(lambda) with binary features and linear function approximation](https://github.com/c-boe/Reinforcement-learning/tree/main/12%20Eligibility%20Traces/Mountain%20Car)
 
 ## Acknowledgement
 
