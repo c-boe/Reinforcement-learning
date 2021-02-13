@@ -23,6 +23,7 @@ Environments from OpenAI gym were not utilized but it was tried to keep the stru
 * [Mountain car task with Episodic Sarsa with function approximation](https://github.com/c-boe/Reinforcement-learning/tree/main/10%20On-policy%20control%20with%20approximation/Mountain%20Car)
 * [Access-control queuing task with differential semi-gradient Sarsa](https://github.com/c-boe/Reinforcement-learning/tree/main/10%20On-policy%20control%20with%20approximation/Access%20control)
 * [Mountain car task with Sarsa(lambda) with binary features and linear function approximation](https://github.com/c-boe/Reinforcement-learning/tree/main/12%20Eligibility%20Traces/Mountain%20Car)
+* [Short corridor with REINFORCE (with Baseline)](https://github.com/c-boe/Reinforcement-learning/blob/main/13%20Policy%20Gradient%20Methods/Short%20Corridor).
 
 ## Acknowledgement
 
