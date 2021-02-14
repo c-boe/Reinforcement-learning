@@ -74,4 +74,17 @@ class MultiArmedBandit:
         R = np.random.normal(q[action], self.var_R, size=1)
     
         return q, R
-        
+      
+#%% Test
+if __name__ == "__main__":
+    
+
+    k_arms = 10  # number of arms of bandit
+    bandit_type = "stationary" # stationary or nonstationary bandit
+
+    MAB = MultiArmedBandit(k_arms, bandit_type)
+    
+    action = np.random.randint(0, MAB.k)
+    q, R =  MAB.bandit(action)
+    
+    print(q)

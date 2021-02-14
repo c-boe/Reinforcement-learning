@@ -1,42 +1,11 @@
 """
-Implementation of algorithms/exercises/examples from chapter 2 of Sutton and
- Barto's "Reinforcement Learning" 
+Implementation of simple bandit and gradient bandit algorithm from chapter 2
+of Sutton andBarto's "Reinforcement Learning" 
 """
 
-import matplotlib.pyplot as plt
 import numpy as np
 from scipy.special import softmax
-
-from mabandit import MultiArmedBandit
-
         
-#%% Algorithms        
-
-def run_bandit_alg(MAB, bandit_algorithm, max_steps, epsilon, alpha, 
-                         num_runs, Q1, UCB, c, baseline):
-    '''
-    Run bandit algorithm
-    '''
-    avg_pct_max_q_a = 0
-    
-    if bandit_algorithm == "gradient":
-
-        for run in range(num_runs):
-            # remark: the evaluation of the runs can be parallelized for better
-            #         performance
-            q, pct_max_q_a = gradient_bandit_alg( 
-            	MAB, max_steps, alpha, baseline, Q1, run)
-            avg_pct_max_q_a += pct_max_q_a
-
-    elif bandit_algorithm == "simple":
-    
-        for run in range(num_runs):
-            Q, q, pct_max_q_a = simple_bandit_alg( 
-                MAB, epsilon, max_steps, alpha, Q1, UCB, c, run)
-            avg_pct_max_q_a += pct_max_q_a
-  
-    return avg_pct_max_q_a
-
 def simple_bandit_alg(MAB, epsilon, max_steps, alpha = 0, Q1 = 0,
                       UCB = False, c = 2, run = 1):
     '''
@@ -185,45 +154,31 @@ def gradient_bandit_alg(MAB, max_steps, alpha = 0.01, baseline = True,
 
     return(q, pct_max_q_a)
         
-#%%
-def plot_oa_pct(max_steps, num_runs, bandit_type, epsilon, alpha, 
-                     avg_pct_max_q_a,bandit_algorithm):
-    '''
-    plot percentage of optimal actions as function of number of steps
-    '''
-    plt.figure()
-    plt.plot(range(max_steps), avg_pct_max_q_a/(num_runs),
-             label = bandit_type + ", eps=" + str(epsilon) 
-             + ", alpha=" + str(alpha)
-             + ", bandit alg.: " + bandit_algorithm)
-    plt.legend()
-    plt.ylabel("%Optimal action")
-    plt.xlabel("Steps")
 
-#%%
-
+#%% Test
 if __name__ == "__main__":
-    """Set parameters and run algorithms (for detailed explanations see 
-    chapter 2 of Sutton and Barto's "Reinforcement Learning"  """
     
     max_steps = 1000 # max time steps
     k_arms = 10  # number of arms of bandit
     epsilon = 0.1 # epsilon value for epsilon greedy policy
     alpha = 0.1 # step size parameter; alpha = 0: incremental steps
-    bandit_type = "stationary" # stationary or nonstationary bandit
-    num_runs = 100 # nr of runs of bandit algorithms
     Q1 = 0 # initial Q values
     UCB = False # upper confidence boundary
     c = 2 # constant for UCB only
     baseline = True #  gradient bandit algorithm
     bandit_algorithm = "simple" # simple or gradient
+    bandit_type = "stationary" # stationary or nonstationary bandit
     
+    from mabandit import MultiArmedBandit
     
     MAB = MultiArmedBandit(k_arms, bandit_type)
-
-    avg_pct_max_q_a = run_bandit_alg(MAB, bandit_algorithm, max_steps, 
-                                     epsilon, alpha, num_runs, Q1, UCB, 
-                                     c, baseline)
-
-    plot_oa_pct(max_steps, num_runs, bandit_type, epsilon, alpha, 
-                     avg_pct_max_q_a, bandit_algorithm )
+    
+    print("run simple bandit algorithm")
+    Q, q, pct_max_q_a =  simple_bandit_alg(MAB, epsilon, max_steps, alpha, Q1, 
+                                           UCB, c, run = 1)
+    print(Q)
+    
+    print("run gradient bandit algorithm")
+    q, pct_max_q_a = gradient_bandit_alg(MAB, max_steps, alpha, baseline, Q1, 
+                                         run = 1)
+    print(q)
