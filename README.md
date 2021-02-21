@@ -20,10 +20,11 @@ Environments from OpenAI gym were not utilized but it was tried to keep the stru
 * [Black Jack with Monte-Carlo control with exploring starts](https://github.com/c-boe/Reinforcement-learning/tree/main/5%20Monte%20Carlo%20methods/Black%20Jack)
 * [Racetrack with off-policy Monte-Carlo control](https://github.com/c-boe/Reinforcement-learning/tree/main/5%20Monte%20Carlo%20methods/Racetrack)
 * [Windy gridworld with Sarsa and cliffwalking with Q-learning](https://github.com/c-boe/Reinforcement-learning/tree/main/6%20Temporal%20difference%20learning)
+* [Maze with Dyna-Q](https://github.com/c-boe/Reinforcement-learning/tree/main/8%20Planning%20and%20Learning%20with%20Tabular%20Methods/Maze)
 * [Mountain car task with Episodic Sarsa with function approximation](https://github.com/c-boe/Reinforcement-learning/tree/main/10%20On-policy%20control%20with%20approximation/Mountain%20Car)
 * [Access-control queuing task with differential semi-gradient Sarsa](https://github.com/c-boe/Reinforcement-learning/tree/main/10%20On-policy%20control%20with%20approximation/Access%20control)
 * [Mountain car task with Sarsa(lambda) with binary features and linear function approximation](https://github.com/c-boe/Reinforcement-learning/tree/main/12%20Eligibility%20Traces/Mountain%20Car)
-* [Short corridor with REINFORCE (with Baseline)](https://github.com/c-boe/Reinforcement-learning/blob/main/13%20Policy%20Gradient%20Methods/Short%20Corridor).
+* [Short corridor with REINFORCE (with Baseline)](https://github.com/c-boe/Reinforcement-learning/tree/main/13%20Policy%20Gradient%20Methods/Short%20Corridor).
 
 ## Acknowledgement
 
